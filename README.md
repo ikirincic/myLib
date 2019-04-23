@@ -33,7 +33,7 @@ let data = EVClientLoginData(awsRegion: .USEast1,
                           applicationId: "application ID")
 ```
 
-All responses are passed trough EVInteractionDelegate so we should should implement it at this point:
+All responses are passed through EVInteractionDelegate so we should implement it at this point:
 
 ```
 ...
@@ -46,7 +46,7 @@ As the names suggest onError provides string response when an error occurs and o
 
 Main interaction interface is EVInteractionKit whitch we initialize by passing created EVClientData object together with user identification; user tokens OR by directly logging in the user. In this step we also need to set or viewController which comfors to EVInteractionDelegate protocol as delegate.
 
-Exaple of passing tokens:
+Example of passing tokens:
 
 ```
 let interactionKit = EVInteractionKit(clientLoginData: data,
@@ -55,7 +55,7 @@ let interactionKit = EVInteractionKit(clientLoginData: data,
                                             interactionDelegate: self) 
 ```
 
-Exaple of username/password:
+Example of username/password:
 
 ```
 let interactionKit = EVInteractionKit(clientLoginData: data,
@@ -71,7 +71,7 @@ If any of values in data object are wrong or invalid you should get an error in 
 
 ## Usage
 
-Now that our interaction kit is ready lets make a simple text request to our bot:
+Now that our interaction kit is ready let's make a simple text request to our bot:
 
 ```
 interactionKit.textRequest(message: "Help", sessionAttributes: ["testAttr": "testValue"])
@@ -79,10 +79,10 @@ interactionKit.textRequest(message: "Help", sessionAttributes: ["testAttr": "tes
 
 In our request we pass a simple message and if we need to, we can add new key, value pair to session attributes.
 
-If all goes well you should get a response in your onResponse method. Response data object is EVInteractorResponseModel with following keys:
+If all goes well, you should get a response in your onResponse method. Response data object is EVInteractorResponseModel with following keys:
 
  - responseType: it can be text or voice, depending on request type
- - sessionAttributes: key value pairs of attributes used in perserving interaction session, custom values form your bot can   be found here
+ - sessionAttributes: key value pairs of attributes used in perserving interaction session; custom values form your bot can   be found here
  - outputText: textual response to our request
  - inputTranscript: in case of voice request, in this field you will find String representation of what bot understood
  - audioStream: in case of voice request, Data object containing voice response; it can be easily played using this snippet:
@@ -98,5 +98,5 @@ player?.play()
  
  Few more notes regarding playback:
   - set AVAudioSession to playback category (first line)
-  - You sould set AVAudioPlayer delegate and continue interaction AFTER the playback is finished    (audioPlayerDidFinishPlaying method gets triggered)
-  - player should be defined outside metods to avoid it beeing dealoccated when metod finishes
+  - You should set AVAudioPlayer delegate and continue interaction AFTER the playback is finished    (audioPlayerDidFinishPlaying method gets triggered)
+  - player should be defined outside methods to avoid it being deallocated when method finishes

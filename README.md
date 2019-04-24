@@ -90,7 +90,7 @@ As the names suggest onError provides string response when an error occurs and o
 
   
 
-Main interaction interface is EVInteractionKit whitch we initialize by passing created EVClientData object together with user identification; user tokens OR by directly logging in the user. In this step we also need to set or viewController which comforts to EVInteractionDelegate protocol as a delegate. 
+Main interaction interface is EVInteractionKit which we initialize by passing created EVClientData object together with user identification; user tokens OR by directly logging in the user. In this step we also need to set our viewController which comforts to EVInteractionDelegate protocol as a delegate. 
 
   
 

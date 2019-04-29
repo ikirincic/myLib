@@ -24,7 +24,15 @@ Install pods using __pod install__ command. No other pods are needed. All AWS de
   
 ### Init 
 
-First step is to create an instance of EVClientData and populate it with keys you were provided. For demo purposes we will create it in 'viewDidLoad()' methot of the view controller but you should cretate it where it suits your architecture and when you get keys via API call or some other method.
+As with any lib we start with importing or lib in class where we will be using EVLib:
+
+``` 
+... 
+import EViosLib
+... 
+``` 
+
+First step after that is to create an instance of EVClientData and populate it with keys you were provided. For demo purposes we will create it in 'viewDidLoad()' method of the view controller but you should cretate it where it suits your architecture and when you get keys via API call or some other method.
 
 ``` 
 let data = EVClientLoginData(awsRegion: .USEast1, 
